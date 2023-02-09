@@ -27,8 +27,8 @@ details {
   margin: 1rem 0;
 }
 
-pre {
-  display: inline;
+li {
+  line-height: 1.5;
 }
 
 .box {

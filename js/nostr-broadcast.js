@@ -97,12 +97,21 @@ const broadcastEvents = async (data) => {
 $('#broadcast').on('click', async () => {
   // reset hash of events
   events = {}
+  // reset UI
+  $('#fetching-status').html('')
+  $('#fetching-progress').css('visibility', 'hidden')
+  $('#fetching-progress').val(0)
+  $('#file-download').html('')
+  $('#events-found').text('')
+  $('#broadcasting-status').html('')
+  $('#broadcasting-progress').css('visibility', 'hidden')
+  $('#broadcasting-progress').val(0)
   // messages to show to user
+  const checkMark = '&#10003;'
   const txt = {
-    check: '&#10003;',
     broadcasting: 'Broadcasting to relays... ',
     fetching: 'Fetching from relays... ',
-    download: 'Downloading json file... &#10003;',
+    download: `Downloading json file... ${checkMark}`,
   }
   // parse pubkey ('npub' or hexa)
   const pubkey = parsePubkey()
@@ -121,7 +130,7 @@ $('#broadcast').on('click', async () => {
   // get all events from relays
   const data = await getEvents(pubkey)
   // inform user fetching is done
-  $('#fetching-status').html(txt.fetching + txt.check)
+  $('#fetching-status').html(txt.fetching + checkMark)
   clearInterval(fetchInterval)
   $('#fetching-progress').val(20)
   // inform user that backup file (json format) is being downloaded
@@ -138,7 +147,7 @@ $('#broadcast').on('click', async () => {
   }, 1000)
   await broadcastEvents(data)
   // inform user that broadcasting is done
-  $('#broadcasting-status').html(txt.broadcasting + txt.check)
+  $('#broadcasting-status').html(txt.broadcasting + checkMark)
   clearInterval(broadcastInterval)
   $('#broadcasting-progress').val(20)
   // re-enable broadcast button
