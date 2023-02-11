@@ -94,7 +94,7 @@ const broadcastEvents = async (data) => {
 }
 
 // button click handler
-$('#broadcast').on('click', async () => {
+const fetchAndBroadcast = async () => {
   // reset hash of events
   events = {}
   // reset UI
@@ -152,4 +152,4 @@ $('#broadcast').on('click', async () => {
   $('#broadcasting-progress').val(20)
   // re-enable broadcast button
   $('#broadcast').prop('disabled', false)
-})
+}
