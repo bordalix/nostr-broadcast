@@ -20,7 +20,7 @@ const fetchAndBroadcast = async () => {
   const pubkey = parsePubkey($('#pubkey').val())
   if (!pubkey) return
   // disable button (will be re-enable at the end of the process)
-  $('#broadcast').prop('disabled', true)
+  $('#fetch-and-broadcast').prop('disabled', true)
   // inform user that app is fetching from relays
   $('#fetching-status').text(txt.fetching)
   // show and update fetching progress bar
@@ -55,5 +55,20 @@ const fetchAndBroadcast = async () => {
   clearInterval(broadcastInterval)
   $('#broadcasting-progress').val(20)
   // re-enable broadcast button
-  $('#broadcast').prop('disabled', false)
+  $('#fetch-and-broadcast').prop('disabled', false)
+}
+
+const getFromExtension = async () => {
+  const pubkey = await window.nostr.getPublicKey()
+  if (pubkey) $('#pubkey').val(pubkey).change()
+}
+
+const pubkeyOnChange = () => {
+  $('#fetch-and-broadcast').css('display', '')
+  $('#get-from-extension').css('display', 'none')
+}
+
+if (window.nostr) {
+  $('#fetch-and-broadcast').css('display', 'none')
+  $('#get-from-extension').css('display', '')
 }
