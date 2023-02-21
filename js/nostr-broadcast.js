@@ -4,7 +4,6 @@ const fetchAndBroadcast = async () => {
   $('#fetching-status').html('')
   $('#fetching-progress').css('visibility', 'hidden')
   $('#fetching-progress').val(0)
-  $('#file-download').html('')
   $('#events-found').text('')
   $('#broadcasting-status').html('')
   $('#broadcasting-progress').css('visibility', 'hidden')
@@ -14,7 +13,6 @@ const fetchAndBroadcast = async () => {
   const txt = {
     broadcasting: 'Broadcasting to relays... ',
     fetching: 'Fetching from relays... ',
-    download: `Downloading javascript file... ${checkMark}`,
   }
   // parse pubkey ('npub' or hexa)
   const pubkey = parsePubkey($('#pubkey').val())
@@ -37,9 +35,6 @@ const fetchAndBroadcast = async () => {
   $('#fetching-status').html(txt.fetching + checkMark)
   clearInterval(fetchInterval)
   $('#fetching-progress').val(20)
-  // inform user that backup file (js format) is being downloaded
-  $('#file-download').html(txt.download)
-  downloadFile(data, 'nostr-broadcast.js')
   // inform user that app is broadcasting events to relays
   $('#broadcasting-status').html(txt.broadcasting)
   // show and update broadcasting progress bar

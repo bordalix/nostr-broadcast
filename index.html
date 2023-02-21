@@ -6,9 +6,7 @@
     <!-- Primary Meta Tags -->
     <title>Nostr broadcast</title>
     <meta name="title" content="Nostr broadcast" />
-    <meta
-      name="description"
-      content="Fetch, backup and broadcast your Nostr events" />
+    <meta name="description" content="Fetch and broadcast your Nostr events" />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nostr-broadcast.pages.dev/" />
@@ -26,19 +24,14 @@
       content="Fetch, backup and broadcast your Nostr events" />
     <meta property="twitter:image" content="/img/nostr-broadcast_twitter.png" />
     <!-- Favicon -->
-    <link
-      rel="shortcut icon"
-      href="https://nostr-utils.pages.dev/img/broadcast.png"
-      type="image/x-icon" />
+    <link rel="shortcut icon" href="img/broadcast.png" type="image/x-icon" />
     <!-- CSS -->
-    <link rel="stylesheet" href="https://nostr-utils.pages.dev/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Lightning -->
     <meta name="lightning" content="bordalix@getalby.com" />
     <!-- PWA -->
     <meta name="theme-color" content="#ffffff" />
-    <link
-      rel="apple-touch-icon"
-      href="https://nostr-utils.pages.dev/img/broadcast.png" />
+    <link rel="apple-touch-icon" href="img/broadcast.png" />
   </head>
 
   <body>
@@ -58,12 +51,12 @@
           /></a>
         </p>
       </div>
-      <p>Fetch, backup and broadcast your events.</p>
+      <p>Fetch and broadcast your events.</p>
       <details>
         <summary>Know more</summary>
         <p>
-          This app will fetch your events from a big list of relays, generate a
-          js file for your backup, and broadcast all events to known relays.
+          This app will fetch your events from a big list of relays and
+          broadcast all events to the same relays.
         </p>
         <p>
           If you want to use your own
@@ -74,16 +67,15 @@
         </p>
         <ul>
           <li>
-            Clone <a href="https://github.com/bordalix/nostr-broadcast">repo</a>
+            Save site or clone
+            <a href="https://github.com/bordalix/nostr-broadcast">repo</a>
           </li>
           <li>Edit <u>js/relays.js</u></li>
           <li>Open <u>index.html</u> with a browser</li>
         </ul>
         <p>
           Repo at
-          <a href="https://github.com/bordalix/nostr-broadcast"
-            >https://github.com/bordalix/nostr-broadcast</a
-          >
+          <a href="https://github.com/bordalix/nostr-broadcast">github</a>
         </p>
         <p>
           Twitter
@@ -147,10 +139,7 @@
               style="visibility: hidden" />
           </p>
         </div>
-        <div class="space-between">
-          <p id="file-download"></p>
-          <p id="events-found"></p>
-        </div>
+        <p id="events-found" style="text-align: center"></p>
         <div class="space-between">
           <p id="broadcasting-status"></p>
           <p style="padding-top: 2px">
